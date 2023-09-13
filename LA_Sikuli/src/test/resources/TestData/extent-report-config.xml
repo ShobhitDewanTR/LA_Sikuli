@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports> 
+	<configuration>
+		<documentTitle>LYNX 8.17.5146.0</documentTitle>
+		<protocol>https</protocol> 
+		<encoding>UTF-8</encoding> 
+		<theme>dark</theme> 
+		<reportName align="center"> 
+			<message>LYNX Fastwire Automation Test Report</message>
+		</reportName> 
+		<testViewChartLocation>top</testViewChartLocation>
+		<timeStampFormat>dd-MM-yyyy hh:mm:ss</timeStampFormat>
+	</configuration> 
+</extentreports> 
