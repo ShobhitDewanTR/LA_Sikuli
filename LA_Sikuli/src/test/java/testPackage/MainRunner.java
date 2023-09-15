@@ -22,7 +22,7 @@ import org.testng.xml.XmlInclude;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
-public class MainRunner extends BasePackage.LYNXBase {
+public class MainRunner extends BasePackage.LABase {
 	public static String TestName, TestDescription, TestID, TestParams;
 
 	public void TestNgXmlSuite(String classname) {

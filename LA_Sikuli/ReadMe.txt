@@ -15,7 +15,7 @@
 	All will auto import once you clean the project (pom.xml have the required libraries already)
 	
 	Note:
-	This POC done for LYNX Fastwire desktop application.
+	This POC done for LYNX Alerting desktop application.
 	It may not run directly in your PC. Please check the code flow and create your own test cases.
 	
 	Author:

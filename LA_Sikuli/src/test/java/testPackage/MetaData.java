@@ -19,14 +19,14 @@ import java.time.Instant;
 
 import com.aventstack.extentreports.ExtentTest;
 
-public class MetaData extends BasePackage.LYNXBase {
+public class MetaData extends BasePackage.LABase {
 	static Pattern pattern, pattern1, pattern2;
 	public MetaData() {
 		super();
 	}
 	@BeforeClass
 	public void setup(){
-	    extent = BasePackage.LYNXBase.getInstance();
+	    extent = BasePackage.LABase.getInstance();
 	}
 	@AfterTest
 	public void flushReportData() {

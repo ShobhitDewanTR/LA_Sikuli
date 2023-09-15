@@ -18,7 +18,7 @@ steps:
     
 - task: Maven@3
   inputs:
-    mavenPomFile: '$(System.DefaultWorkingDirectory)/LYNX_Automation/pom.xml'
+    mavenPomFile: '$(System.DefaultWorkingDirectory)/LA_Sikuli/pom.xml'
     mavenOptions: '-Xmx3072m'
    # javaHomeOption: 'JDKVersion'
    # jdkVersionOption: '1.8'
@@ -26,7 +26,7 @@ steps:
     publishJUnitResults: true
     #testResultsFiles: '**/surefire-reports/TEST-*.xml'
     #testResultsFiles:  '**/junitreports/TEST-*.xml'
-    testResultsFiles:  '**/LYNX_*.html'
+    testResultsFiles:  '**/LA*.html'
     goals: 'package'
 
 # Publish Test Results
@@ -34,7 +34,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-    testResultsFiles: '**/LYNX_*.html' 
+    testResultsFiles: '**/LA*.html' 
     #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
     #mergeTestResults: false # Optional
     #failTaskOnFailedTests: false # Optional
