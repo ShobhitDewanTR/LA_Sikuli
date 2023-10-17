@@ -95,44 +95,7 @@ public class MainRunner extends BasePackage.LABase {
 					TestParams = row.getCell(3).getStringCellValue();
 					TestDescription = row.getCell(5).getStringCellValue();
 					rc.TestNgXmlSuite(row.getCell(4).getStringCellValue());
-					while(s.exists(Patternise("ErrorMetadataHC","Easy"))!=null || s.exists(Patternise("ErrorMetadata","Easy"))!=null || s.exists(Patternise("ErrorOutofProc","Easy"))!=null) {
-						if(s.exists(Patternise("ErrorMetadataOK_1","Easy")) != null) {
-							s.click(Patternise("ErrorMetadataOK_1","Easy"));
-						}
-						if(s.exists(Patternise("ErrorMetadataOK","Easy")) != null) {
-							s.click(Patternise("ErrorMetadataOK","Easy"));	
-						}
-						if(s.exists(Patternise("ErrorMetadataOKHC","Easy")) != null) {
-							s.click(Patternise("ErrorMetadataOKHC","Easy"));
-						}
-						if(s.exists(Patternise("ErrorMetadataOKLGHT","Moderate")) != null) {
-							s.click(Patternise("ErrorMetadataOKLGHT","Moderate"));
-						}
-						
-						else if (s.exists(Patternise("ErrorOutofProc", "Easy")) != null) {
-							if(s.exists(Patternise("ErrorMetadataOK_1","Moderate")) != null) {
-								s.click(Patternise("ErrorMetadataOK_1","Moderate"));
-							}
-							if(s.exists(Patternise("ErrorMetadataOK","Moderate")) != null) {
-								s.click(Patternise("ErrorMetadataOK","Moderate"));	
-							}
-							if(s.exists(Patternise("ErrorMetadataOKHC","Moderate")) != null) {
-								s.click(Patternise("ErrorMetadataOKHC","Moderate"));
-							}
-							if(s.exists(Patternise("ErrorMetadataOKLGHT","Moderate")) != null) {
-								s.click(Patternise("ErrorMetadataOKLGHT","Moderate"));
-							}
-							
-							RelaunchReopenFWTab(test, "Relaunch");
-						}
-						if (count>10) {
-							test.fail("Application error has occured");
-							RelaunchReopenFWTab(test,"Relaunch");
-							break;
-							
-						}
-						count++;
-					}
+					//LaunchLA(test,"Open");
 				}
 			}
 		} catch (Exception ex) {
