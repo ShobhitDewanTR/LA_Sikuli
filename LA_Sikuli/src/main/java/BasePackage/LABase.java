@@ -1,8 +1,10 @@
 package BasePackage;
 import java.awt.Desktop;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.Properties;
 
@@ -79,7 +81,7 @@ public class LABase {
 	}
 	
 	//@SuppressWarnings("deprecation")
-	public static void LaunchLA(ExtentTest test, String Option) throws FindFailed, InterruptedException {
+	public static int LaunchLA(ExtentTest test, String Option) throws FindFailed, InterruptedException {
 //		Pattern pattern;
 		int count=0;
 //		pattern = new Pattern(GetProperty("LATskBr")).exact();
@@ -146,23 +148,57 @@ public class LABase {
 							test.pass("Successfully logged into LA");
 							s.find(Patternise("LAEDITORLOGO","Moderate")).doubleClick();
 							LAapp.focus();
+							if (s.exists(Patternise("WorkspaceDefaultfocussed","Moderate")) != null) {
+								s.click(Patternise("WorkspaceDefaultfocussed","Moderate"));
+							}
+							else if (s.exists(Patternise("WorkspaceDefaultunfocussed","Moderate")) != null) {
+								s.click(Patternise("WorkspaceDefaultunfocussed","Moderate"));
+							}
+							else {
+								s.click(Patternise("NewWorkspace","Moderate"));
+							}
 					}
 					else {
 							test.fail("Unable to login to LA");
 					}
 			}
 			else if (Option.equals("Open")){
-				if(s.exists(Patternise("LAEDITORLOGO","Moderate"))!=null) {
-					LAapp.focus();
-					test.pass("LA Window opened and focussed");					
+				    String line;
+				    int existingprocess=0;
+	                @SuppressWarnings("deprecation")
+					Process p = Runtime.getRuntime().exec(System.getenv("windir")
+	                        + "\\system32\\" + "tasklist.exe");
+	                BufferedReader input = new BufferedReader(
+	                        new InputStreamReader(p.getInputStream()));
+	                while ((line = input.readLine()) != null) {
+	                    if (line.contains("LynxAlerting.exe")) { //Parsses the line
+	                    	existingprocess=1;
+	                    }
+	                }
+	                input.close();
+	                if(existingprocess==1) {
+	                	LAapp.focus();
+	                	test.pass("LA Window opened and focussed");		
+						if (s.exists(Patternise("WorkspaceDefaultfocussed","Moderate")) != null) {
+							s.click(Patternise("WorkspaceDefaultfocussed","Moderate"));
+						}
+						else if (s.exists(Patternise("WorkspaceDefaultunfocussed","Moderate")) != null) {
+							s.click(Patternise("WorkspaceDefaultunfocussed","Moderate"));
+						}
+						else {
+							s.click(Patternise("NewWorkspace","Moderate"));
+						}
+					}
+					else {
+						test.info("No open instances of LA found, attempting to launch LA app...");	
+						LaunchLA(test,"Relaunch");
+					}
 			}
-			else {
-				LaunchLA(test,"Relaunch");
-			}
-			}
+			return 1;
 		}
 		catch(Exception e) {
 			test.fail("Error Occured: "+e.getLocalizedMessage());
+			return 0;
 		}
 		finally {
 			test.log(com.aventstack.extentreports.Status.INFO,nameofCurrMethod+" method end");
@@ -172,16 +208,209 @@ public class LABase {
 		return folder+LAProp.getProperty(Prop);		
 	}
 	
-	public static void CloseLA(ExtentTest test) throws IOException, InterruptedException {
-		Runtime runtime = Runtime.getRuntime();     //getting Runtime object
-	    runtime.exec("taskkill /F /IM LynxAlerting.exe");
-        Thread.sleep(5000);
-        if(s.exists(Patternise("LAEDITORLOGO","Moderate"))!=null) {
-			test.fail("Unable to close LA Window");
-        }
-        else {
-        	test.pass("LA Window closed Successfully");
-        }
+	public static void CloseLA(ExtentTest test) {
+		try {
+				Runtime runtime = Runtime.getRuntime();     //getting Runtime object
+			    runtime.exec("taskkill /F /IM LynxAlerting.exe");
+		        Thread.sleep(2000);
+		        if(s.exists(Patternise("LAEDITORLOGO","Moderate"))!=null) {
+					test.fail("Unable to close LA Window");
+		        }
+		        else {
+		        	test.pass("LA Window closed Successfully");
+		        }
+		} 
+		catch(Exception e) {
+				test.fail("Error Occured: "+e.getLocalizedMessage());
+		}
+	}
+	public static void EnterStoryData(ExtentTest test,String Headline, String USN, String Product, String Topic, String RIC, String Slug, String CategoryCodes,String NamedItems,String Body){
+		 try {
+				if(s.exists(Patternise("ExpandStory","Moderate"))!=null) {
+					//Enter Headline
+					if(!Headline.equals("")) {
+						s.type(Headline);
+						Thread.sleep(2000);
+						test.pass("Entered Headline");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter USN
+					if(!USN.equals("")) {
+						s.type(USN);
+						Thread.sleep(2000);
+						test.pass("Entered USN");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Product
+					if(!Product.equals("")) {
+						s.type(Product);
+						Thread.sleep(2000);
+						test.pass("Entered Product");
+						
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Topic
+					if(!Topic.equals("")) {
+						s.type(Topic);
+						Thread.sleep(2000);
+						test.pass("Entered Topic");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter RIC
+					if(!RIC.equals("")) {
+						s.type(RIC);
+						Thread.sleep(2000);
+						test.pass("Entered RIC");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Slug
+					if(!Slug.equals("")) {
+						s.type(Slug);
+						Thread.sleep(2000);
+						test.pass("Entered Slug");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter CategoryCodes
+					if(!CategoryCodes.equals("")) {
+						s.type(CategoryCodes);
+						Thread.sleep(2000);
+						test.pass("Entered Category Codes");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter NamedItems
+					if(!NamedItems.equals("")) {
+						s.type(NamedItems);
+						Thread.sleep(2000);
+						test.pass("Entered Named Items");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Body
+					if(!Body.equals("")) {
+						s.type(Body);
+						Thread.sleep(2000);
+						test.pass("Entered Body");
+					}
+					
+		        }
+		        else {
+		        	test.fail("New Story Template not loaded, Cannot Continue");
+		        }
+		}
+		catch(Exception e) {
+			test.fail("Error Occured: "+e.getLocalizedMessage());
+		}	
+	}
+	
+	public static void EnterAlertData(ExtentTest test,String Headline, String USN,String Product, String Topic, String RIC, String NamedItems){
+		 try {
+				if(s.exists(Patternise("ExpandAlert","Moderate"))!=null) {
+					//Enter Headline
+					if(!Headline.equals("")) {
+						s.type(Headline);
+						Thread.sleep(2000);
+						test.pass("Entered Headline");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter USN
+					if(!USN.equals("")) {
+						s.type(USN);
+						Thread.sleep(2000);
+						test.pass("Entered USN");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Product
+					if(!Product.equals("")) {
+						s.type(Product);
+						Thread.sleep(2000);
+						test.pass("Entered Product");
+						
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Topic
+					if(!Topic.equals("")) {
+						s.type(Topic);
+						Thread.sleep(2000);
+						test.pass("Entered Topic");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter RIC
+					if(!RIC.equals("")) {
+						s.type(RIC);
+						Thread.sleep(2000);
+						test.pass("Entered RIC");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter NamedItems
+					if(!NamedItems.equals("")) {
+						s.type(NamedItems);
+						Thread.sleep(2000);
+						test.pass("Entered Named Items");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					
+				}
+		        else {
+		        	test.fail("New Alert Template not loaded, Cannot Continue");
+		        }
+		}
+		catch(Exception e) {
+			test.fail("Error Occured: "+e.getLocalizedMessage());
+		}	
+	}
+	
+	public static void EnterEconData(ExtentTest test,String Headline, String USN,String Product){
+		 try {
+				if(s.exists(Patternise("ExpandEcon","Moderate"))!=null) {
+					//Enter RIC
+					if(!Headline.equals("")) {
+						s.type(Headline);
+						Thread.sleep(2000);
+						test.pass("Entered RIC");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Actual Value
+					if(!USN.equals("")) {
+						s.type(USN);
+						Thread.sleep(2000);
+						test.pass("Entered Actual Value");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Revised Value
+					if(!Product.equals("")) {
+						s.type(Product);
+						Thread.sleep(2000);
+						test.pass("Entered Revised Value");
+					}
+				}
+		        else {
+		        	test.fail("New Econ Template not loaded, Cannot Continue");
+		        }
+		}
+		catch(Exception e) {
+			test.fail("Error Occured: "+e.getLocalizedMessage());
+		}	
 	}
 	public static void UncheckBoxes(ExtentTest test) {
 		Pattern pattern;
