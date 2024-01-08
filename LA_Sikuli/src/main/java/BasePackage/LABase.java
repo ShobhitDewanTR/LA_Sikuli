@@ -81,7 +81,7 @@ public class LABase {
 	}
 	
 	//@SuppressWarnings("deprecation")
-	public static int LaunchLA(ExtentTest test, String Option) throws FindFailed, InterruptedException {
+	public static int LaunchLA(ExtentTest test, String Option, String Delete) throws FindFailed, InterruptedException {
 //		Pattern pattern;
 		int count=0;
 //		pattern = new Pattern(GetProperty("LATskBr")).exact();
@@ -157,6 +157,14 @@ public class LABase {
 							else {
 								s.click(Patternise("NewWorkspace","Moderate"));
 							}
+							if (Delete.toUpperCase().equals("YES")) {
+								while(s.exists(Patternise("Delete","Strict")) != null) {
+									s.click(Patternise("Delete","Strict"));
+								}
+								while(s.exists(Patternise("DeleteFocussed","Strict")) != null) {
+									s.click(Patternise("DeleteFocussed","Strict"));
+								}
+							}
 					}
 					else {
 							test.fail("Unable to login to LA");
@@ -188,10 +196,16 @@ public class LABase {
 						else {
 							s.click(Patternise("NewWorkspace","Moderate"));
 						}
+						while(s.exists(Patternise("Delete","Strict")) != null) {
+							s.click(Patternise("Delete","Strict"));
+						}
+						while(s.exists(Patternise("DeleteFocussed","Strict")) != null) {
+							s.click(Patternise("DeleteFocussed","Strict"));
+						}
 					}
 					else {
 						test.info("No open instances of LA found, attempting to launch LA app...");	
-						LaunchLA(test,"Relaunch");
+						LaunchLA(test,"Relaunch","YES");
 					}
 			}
 			return 1;
@@ -224,6 +238,8 @@ public class LABase {
 				test.fail("Error Occured: "+e.getLocalizedMessage());
 		}
 	}
+	
+	
 	public static void EnterStoryData(ExtentTest test,String Headline, String USN, String Product, String Topic, String RIC, String Slug, String CategoryCodes,String NamedItems,String Body){
 		 try {
 				if(s.exists(Patternise("ExpandStory","Moderate"))!=null) {
@@ -311,6 +327,28 @@ public class LABase {
 		}	
 	}
 	
+	public static void UpdateAssetData(ExtentTest test,String Headline, String Asset){
+		 try {
+					//Enter Headline
+					if(!Headline.equals("")) {
+						s.mouseMove(Patternise("NewWorkspace","Moderate"));
+						s.find(Patternise("Expand"+Asset,"Moderate")).offset(80, 0).click();
+						s.keyDown(Key.CTRL);
+						s.type("a");
+						Thread.sleep(2000);
+						s.keyDown(Key.DELETE);
+						s.keyUp(Key.CTRL);
+						s.keyUp(Key.DELETE);
+						s.type(Headline);
+						Thread.sleep(2000);
+						test.pass("Entered Headline");
+					}
+									
+		}
+		catch(Exception e) {
+			test.fail("Error Occured: "+e.getLocalizedMessage());
+		}	
+	}
 	public static void EnterAlertData(ExtentTest test,String Headline, String USN,String Product, String Topic, String RIC, String NamedItems){
 		 try {
 				if(s.exists(Patternise("ExpandAlert","Moderate"))!=null) {
@@ -360,6 +398,14 @@ public class LABase {
 						s.type(NamedItems);
 						Thread.sleep(2000);
 						test.pass("Entered Named Items");
+					}
+					s.keyDown(Key.TAB);
+					s.keyUp(Key.TAB);
+					//Enter Cyclical Option
+					if(Headline.toUpperCase().contains("CYCLICAL")) {
+						s.click(Patternise("Cyclical","Moderate"));
+						Thread.sleep(2000);
+						test.pass("Checked Cyclical Checkbox");
 					}
 					s.keyDown(Key.TAB);
 					s.keyUp(Key.TAB);

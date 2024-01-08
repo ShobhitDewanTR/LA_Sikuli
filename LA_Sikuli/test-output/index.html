@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testPackage.TemplateCases" class="method navigator-link" hash-for-method="VerifyTemplateScenarios(Story, TestStoryHeadline, Test, Test, TestMe, Test.V, Test, T, Taslic/, TestStory)">VerifyTemplateScenarios(Story, TestStoryHeadline, Test, Test, TestMe, Test.V, Test, T, Taslic/, TestStory)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testPackage.TemplateCases" class="method navigator-link" hash-for-method="VerifyTemplateShortcutScenarios(Econ, 64424509456, 7, 5, NA, NA, NA, NA, NA, NA, Existing)">VerifyTemplateShortcutScenarios(Econ, 64424509456, 7, 5, NA, NA, NA, NA, NA, NA, Existing)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -127,10 +127,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="VerifyTemplateScenarios(Story, TestStoryHeadline, Test, Test, TestMe, Test.V, Test, T, Taslic/, TestStory)">
-                  </a> <!-- VerifyTemplateScenarios(Story, TestStoryHeadline, Test, Test, TestMe, Test.V, Test, T, Taslic/, TestStory) -->
-                  <span class="method-name">VerifyTemplateScenarios</span>
-                  <span class="parameters">(Story, TestStoryHeadline, Test, Test, TestMe, Test.V, Test, T, Taslic/, TestStory)</span>
+                  <a name="VerifyTemplateShortcutScenarios(Econ, 64424509456, 7, 5, NA, NA, NA, NA, NA, NA, Existing)">
+                  </a> <!-- VerifyTemplateShortcutScenarios(Econ, 64424509456, 7, 5, NA, NA, NA, NA, NA, NA, Existing) -->
+                  <span class="method-name">VerifyTemplateShortcutScenarios</span>
+                  <span class="parameters">(Econ, 64424509456, 7, 5, NA, NA, NA, NA, NA, NA, Existing)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -145,20 +145,21 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite parallel=&quot;methods&quot; name=&quot;Suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; parallel=&quot;methods&quot; name=&quot;Test&quot;&gt;
-    &lt;parameter name=&quot;param7&quot; value=&quot;T&quot;/&gt;
-    &lt;parameter name=&quot;param8&quot; value=&quot;Taslic/&quot;/&gt;
-    &lt;parameter name=&quot;param5&quot; value=&quot;Test.V&quot;/&gt;
-    &lt;parameter name=&quot;param6&quot; value=&quot;Test&quot;/&gt;
-    &lt;parameter name=&quot;param9&quot; value=&quot;TestStory&quot;/&gt;
-    &lt;parameter name=&quot;param0&quot; value=&quot;Story&quot;/&gt;
-    &lt;parameter name=&quot;param3&quot; value=&quot;Test&quot;/&gt;
-    &lt;parameter name=&quot;param4&quot; value=&quot;TestMe&quot;/&gt;
-    &lt;parameter name=&quot;param1&quot; value=&quot;TestStoryHeadline&quot;/&gt;
-    &lt;parameter name=&quot;param2&quot; value=&quot;Test&quot;/&gt;
+    &lt;parameter name=&quot;param7&quot; value=&quot;NA&quot;/&gt;
+    &lt;parameter name=&quot;param8&quot; value=&quot;NA&quot;/&gt;
+    &lt;parameter name=&quot;param5&quot; value=&quot;NA&quot;/&gt;
+    &lt;parameter name=&quot;param6&quot; value=&quot;NA&quot;/&gt;
+    &lt;parameter name=&quot;param9&quot; value=&quot;NA&quot;/&gt;
+    &lt;parameter name=&quot;param10&quot; value=&quot;Existing&quot;/&gt;
+    &lt;parameter name=&quot;param0&quot; value=&quot;Econ&quot;/&gt;
+    &lt;parameter name=&quot;param3&quot; value=&quot;5&quot;/&gt;
+    &lt;parameter name=&quot;param4&quot; value=&quot;NA&quot;/&gt;
+    &lt;parameter name=&quot;param1&quot; value=&quot;64424509456&quot;/&gt;
+    &lt;parameter name=&quot;param2&quot; value=&quot;7&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;testPackage.TemplateCases&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;VerifyTemplateScenarios&quot;/&gt;
+          &lt;include name=&quot;VerifyTemplateShortcutScenarios&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- testPackage.TemplateCases --&gt;
     &lt;/classes&gt;
@@ -202,14 +203,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'VerifyTemplateScenarios')
+data.setCell(0, 1, 'VerifyTemplateShortcutScenarios')
 data.setCell(0, 2, 'testPackage.TemplateCases')
-data.setCell(0, 3, 64823);
+data.setCell(0, 3, 28338);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 28 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -224,9 +225,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testPackage.TemplateCases</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">VerifyTemplateScenarios</span>
+                <br/>
+                <span class="ignored-method-name">VerifyBundleTemplate</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -241,12 +251,12 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">VerifyTemplateScenarios(Story, TestStoryHeadline, Test, Test, TestMe, Test.V, Test, T, Taslic/, TestStory)</span>
-                <span class="method-start">1841 ms</span>
+                <span class="method-name">VerifyTemplateShortcutScenarios(Econ, 64424509456, 7, 5, NA, NA, NA, NA, NA, NA, Existing)</span>
+                <span class="method-start">1 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">flushReportData</span>
-                <span class="method-start">66671 ms</span>
+                <span class="method-start">28339 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
