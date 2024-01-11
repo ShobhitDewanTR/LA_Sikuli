@@ -381,4 +381,94 @@ public class AssetCases extends BasePackage.LABase {
 			test.log(com.aventstack.extentreports.Status.INFO,nameofCurrMethod+" method end");
 		}
 	}
+	
+	@Parameters({"param0","param1","param2","param3","param4","param5","param6","param7","param8","param9","param10"})
+	@Test
+	public static void VerifyAssetCopy(String type,String Hdln, String usn,String pdct, String tpc, String ric, String slg, String catcode,String nmditm,String bdy,String Option) throws FindFailed, InterruptedException {
+		test = extent.createTest(MainRunner.TestID,MainRunner.TestDescription);
+		int status;
+		String msg = null;
+		String icon, icon2;
+		String nameofCurrMethod = new Throwable()
+                .getStackTrace()[0]
+                .getMethodName();
+		test.log(com.aventstack.extentreports.Status.INFO,nameofCurrMethod+" Method begin");
+		try {
+			//System.out.println(s.find(Patternise("EconAlertStoryHeadline","Moderate")).getX());
+			status=LaunchLA(test,"Open","YES");
+			if(status==1) {
+				s.wait(Patternise("New"+type,"Moderate"),2).click();
+				test.pass("Clicked on New"+type+" button");
+				Thread.sleep(2000);
+				if (s.exists(Patternise("Expand"+type,"Moderate")) != null) {
+					s.wait(Patternise("Expand"+type,"Moderate"),2).click();
+					test.pass("Clicked on Expand "+ type +" button");
+					switch(type) {
+					  case "Story":
+					    EnterStoryData(test,Hdln,usn,pdct,tpc,ric,slg,catcode,nmditm,bdy);
+					    break;
+					  case "Alert":
+						EnterAlertData(test,Hdln,usn,pdct,tpc,ric,nmditm);
+						break;
+					  case "Econ":
+						EnterEconData(test,Hdln,usn,pdct);
+						break;
+					  default:
+					    test.fail("Wrong type inputted.Please correct the type in Data Sheet and rerun");
+					}
+					//check for option
+					switch(Option) {
+					  case "Check":
+						  s.wait(Patternise("Expand"+type+"Relaunch","Moderate"),2).click();
+						  icon="Expand"+type+"Relaunch";
+						  icon2="Expand"+type+"Copy";
+						  msg=" copying the existing "+type;
+						  break;
+					  case "NewWorkspace":
+						  s.wait(Patternise("NewWorkspace","Moderate"),2).click();
+						  test.pass("Navigated to New Asset screen");
+						  s.wait(Patternise("New"+type,"Moderate"),2).click();
+						  test.pass("Clicked on New"+type+" button on New Asset Screen");
+						  s.wait(Patternise("CloseWorkspace","Moderate"),2).click();
+						  s.wait(Patternise("WorkspaceDefaultunfocussed","Moderate"),2).click();
+						  test.pass("Navigated back to workspace screen");
+						  msg=" navigating back to screen from New Asset Screen";
+						  icon="Expand"+type;
+						  icon2="Expand"+type+"Copy";
+					  	  break;
+					  default:
+					    test.fail("Wrong Option inputted.Please correct the Option in Data Sheet and rerun");
+					    return;
+					}
+					//Copy and paste the asset
+					s.type("c", Key.CTRL+ Key.ALT);
+					Thread.sleep(2000);
+					test.pass("Successfully Copied the existing asset");
+					s.type("v", Key.CTRL+ Key.ALT);
+					test.pass("Pasted the copy of existing asset successfully");
+					Thread.sleep(3000);
+					if (s.exists(Patternise(icon,"Moderate")) != null && s.exists(Patternise(icon2,"Moderate"))!=null) {
+						test.pass("New Asset is saved after "+msg);
+					}
+					else {
+						test.fail("New is not saved after "+msg);
+					}
+					
+				} else {
+						test.fail("New "+type+" Template not loaded, Cannot Continue");
+				}
+			}
+			//CloseLA(test);
+		}
+		catch(Exception e) {
+			test.fail("Error Occured: "+e.getLocalizedMessage());
+		}
+		finally {
+			test.log(com.aventstack.extentreports.Status.INFO,nameofCurrMethod+" method end");
+			while(s.exists(Patternise("Delete","Strict")) != null) {
+				s.click(Patternise("Delete","Strict"));
+				s.mouseMove(Patternise("NewWorkspace","Moderate").targetOffset(0,-15));
+			}
+		}
+	}
 }

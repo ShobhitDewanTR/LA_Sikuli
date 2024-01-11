@@ -78,6 +78,7 @@ public class TemplateCases extends BasePackage.LABase {
 					s.keyUp(Key.TAB);
 					s.keyDown(Key.TAB);
 					s.keyUp(Key.TAB);
+					Thread.sleep(3000);
 					s.keyDown(Key.ENTER);
 					if (s.exists(Patternise("PopupYes","Moderate")) != null) {
 						s.wait(Patternise("PopupYes","Moderate"),1).click();
@@ -198,6 +199,7 @@ public class TemplateCases extends BasePackage.LABase {
 					s.keyUp(Key.TAB);
 					s.keyDown(Key.TAB);
 					s.keyUp(Key.TAB);
+					Thread.sleep(3000);
 					s.keyDown(Key.ENTER);
 					s.keyUp(Key.ENTER);
 					if (s.exists(Patternise("PopupYes","Moderate")) != null) {
@@ -312,7 +314,8 @@ public class TemplateCases extends BasePackage.LABase {
 								s.keyUp(Key.TAB);
 								s.keyDown(Key.TAB);
 								s.keyUp(Key.TAB);
-								s.keyDown(Key.ENTER);
+								Thread.sleep(3000);
+								s.wait(Patternise("OKTemplate","Moderate"),1).click();
 								if (s.exists(Patternise("PopupYes","Moderate")) != null) {
 									s.wait(Patternise("PopupYes","Moderate"),1).click();
 								}
@@ -338,6 +341,7 @@ public class TemplateCases extends BasePackage.LABase {
 								else {
 									test.fail(type+ " template not found");
 								}
+								break;
 							case "Invalid":
 								s.type("f", Key.CTRL);
 								Thread.sleep(3000);
@@ -361,6 +365,7 @@ public class TemplateCases extends BasePackage.LABase {
 								else {
 									test.pass(type+ " template not saved using invalid shortcut");
 								}
+								break;
 							 default:
 								    test.fail("Wrong Option inputted.Please correct the Option value in Data Sheet and rerun");
 						}
