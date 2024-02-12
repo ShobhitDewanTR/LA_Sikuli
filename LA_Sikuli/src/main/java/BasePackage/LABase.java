@@ -420,12 +420,12 @@ public class LABase {
 		}	
 	}
 	
-	public static void EnterEconData(ExtentTest test,String Headline, String USN,String Product){
+	public static void EnterEconData(ExtentTest test,String RIC, String Actual,String Revised){
 		 try {
 				if(s.exists(Patternise("ExpandEcon","Moderate"))!=null) {
 					//Enter RIC
-					if(!Headline.equals("")) {
-						s.type(Headline);
+					if(!RIC.equals("")) {
+						s.type(RIC);
 						Thread.sleep(2000);
 						test.pass("Entered RIC");
 					}
@@ -434,8 +434,8 @@ public class LABase {
 					s.keyDown(Key.TAB);
 					s.keyUp(Key.TAB);
 					//Enter Actual Value
-					if(!USN.equals("")) {
-						s.type(USN);
+					if(!Actual.equals("")) {
+						s.type(Actual);
 						Thread.sleep(2000);
 						test.pass("Entered Actual Value");
 					}
@@ -444,8 +444,8 @@ public class LABase {
 					s.keyDown(Key.TAB);
 					s.keyUp(Key.TAB);
 					//Enter Revised Value
-					if(!Product.equals("")) {
-						s.type(Product);
+					if(!Revised.equals("")) {
+						s.type(Revised);
 						Thread.sleep(2000);
 						test.pass("Entered Revised Value");
 					}

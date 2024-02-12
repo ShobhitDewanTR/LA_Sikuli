@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testPackage.AssetCases" class="method navigator-link" hash-for-method="VerifyAssetCopy(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Check)">VerifyAssetCopy(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Check)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testPackage.AssetCases" class="method navigator-link" hash-for-method="VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)">VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -127,10 +127,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="VerifyAssetCopy(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Check)">
-                  </a> <!-- VerifyAssetCopy(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Check) -->
-                  <span class="method-name">VerifyAssetCopy</span>
-                  <span class="parameters">(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Check)</span>
+                  <a name="VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)">
+                  </a> <!-- VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description) -->
+                  <span class="method-name">VerifyEconScenarios</span>
+                  <span class="parameters">(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -150,7 +150,7 @@
     &lt;parameter name=&quot;param5&quot; value=&quot;NA&quot;/&gt;
     &lt;parameter name=&quot;param6&quot; value=&quot;NA&quot;/&gt;
     &lt;parameter name=&quot;param9&quot; value=&quot;NA&quot;/&gt;
-    &lt;parameter name=&quot;param10&quot; value=&quot;Check&quot;/&gt;
+    &lt;parameter name=&quot;param10&quot; value=&quot;Description&quot;/&gt;
     &lt;parameter name=&quot;param0&quot; value=&quot;Econ&quot;/&gt;
     &lt;parameter name=&quot;param3&quot; value=&quot;5&quot;/&gt;
     &lt;parameter name=&quot;param4&quot; value=&quot;NA&quot;/&gt;
@@ -159,7 +159,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;testPackage.AssetCases&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;VerifyAssetCopy&quot;/&gt;
+          &lt;include name=&quot;VerifyEconScenarios&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- testPackage.AssetCases --&gt;
     &lt;/classes&gt;
@@ -203,14 +203,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'VerifyAssetCopy')
+data.setCell(0, 1, 'VerifyEconScenarios')
 data.setCell(0, 2, 'testPackage.AssetCases')
-data.setCell(0, 3, 46618);
+data.setCell(0, 3, 35088);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 46 seconds</span>
+              <span class="suite-total-time">Total running time: 35 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -225,17 +225,21 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">5 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">testPackage.AssetCases</span>
               <div class="ignored-methods-div">
+                <span class="ignored-method-name">VerifyBundleCopy</span>
+                <br/>
                 <span class="ignored-method-name">VerifyAssetField</span>
                 <br/>
                 <span class="ignored-method-name">VerifyAssetUpdate</span>
                 <br/>
                 <span class="ignored-method-name">VerifyAssetSave</span>
+                <br/>
+                <span class="ignored-method-name">VerifyAssetCopy</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -253,12 +257,12 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">VerifyAssetCopy(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Check)</span>
-                <span class="method-start">1 ms</span>
+                <span class="method-name">VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)</span>
+                <span class="method-start">892 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">flushReportData</span>
-                <span class="method-start">46619 ms</span>
+                <span class="method-start">35984 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
