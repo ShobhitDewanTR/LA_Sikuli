@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testPackage.AssetCases" class="method navigator-link" hash-for-method="VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)">VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testPackage.PublishCases" class="method navigator-link" hash-for-method="VerifyCyclicAlertLanguage(Chinese, TESTALERTHEADLINECyclical, TEST, TEST, TESTME, TEST.V, TEST)">VerifyCyclicAlertLanguage(Chinese, TESTALERTHEADLINECyclical, TEST, TEST, TESTME, TEST.V, TEST)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -122,15 +122,15 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testPackage.AssetCases</span>
+              <span class="class-name">testPackage.PublishCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)">
-                  </a> <!-- VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description) -->
-                  <span class="method-name">VerifyEconScenarios</span>
-                  <span class="parameters">(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)</span>
+                  <a name="VerifyCyclicAlertLanguage(Chinese, TESTALERTHEADLINECyclical, TEST, TEST, TESTME, TEST.V, TEST)">
+                  </a> <!-- VerifyCyclicAlertLanguage(Chinese, TESTALERTHEADLINECyclical, TEST, TEST, TESTME, TEST.V, TEST) -->
+                  <span class="method-name">VerifyCyclicAlertLanguage</span>
+                  <span class="parameters">(Chinese, TESTALERTHEADLINECyclical, TEST, TEST, TESTME, TEST.V, TEST)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -145,23 +145,19 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite parallel=&quot;methods&quot; name=&quot;Suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; parallel=&quot;methods&quot; name=&quot;Test&quot;&gt;
-    &lt;parameter name=&quot;param7&quot; value=&quot;NA&quot;/&gt;
-    &lt;parameter name=&quot;param8&quot; value=&quot;NA&quot;/&gt;
-    &lt;parameter name=&quot;param5&quot; value=&quot;NA&quot;/&gt;
-    &lt;parameter name=&quot;param6&quot; value=&quot;NA&quot;/&gt;
-    &lt;parameter name=&quot;param9&quot; value=&quot;NA&quot;/&gt;
-    &lt;parameter name=&quot;param10&quot; value=&quot;Description&quot;/&gt;
-    &lt;parameter name=&quot;param0&quot; value=&quot;Econ&quot;/&gt;
-    &lt;parameter name=&quot;param3&quot; value=&quot;5&quot;/&gt;
-    &lt;parameter name=&quot;param4&quot; value=&quot;NA&quot;/&gt;
-    &lt;parameter name=&quot;param1&quot; value=&quot;64424509451&quot;/&gt;
-    &lt;parameter name=&quot;param2&quot; value=&quot;7&quot;/&gt;
+    &lt;parameter name=&quot;param5&quot; value=&quot;TEST.V&quot;/&gt;
+    &lt;parameter name=&quot;param6&quot; value=&quot;TEST&quot;/&gt;
+    &lt;parameter name=&quot;param0&quot; value=&quot;Chinese&quot;/&gt;
+    &lt;parameter name=&quot;param3&quot; value=&quot;TEST&quot;/&gt;
+    &lt;parameter name=&quot;param4&quot; value=&quot;TESTME&quot;/&gt;
+    &lt;parameter name=&quot;param1&quot; value=&quot;TESTALERTHEADLINECyclical&quot;/&gt;
+    &lt;parameter name=&quot;param2&quot; value=&quot;TEST&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testPackage.AssetCases&quot;&gt;
+      &lt;class name=&quot;testPackage.PublishCases&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;VerifyEconScenarios&quot;/&gt;
+          &lt;include name=&quot;VerifyCyclicAlertLanguage&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- testPackage.AssetCases --&gt;
+      &lt;/class&gt; &lt;!-- testPackage.PublishCases --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -203,14 +199,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'VerifyEconScenarios')
-data.setCell(0, 2, 'testPackage.AssetCases')
-data.setCell(0, 3, 35088);
+data.setCell(0, 1, 'VerifyCyclicAlertLanguage')
+data.setCell(0, 2, 'testPackage.PublishCases')
+data.setCell(0, 3, 110028);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 35 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -229,17 +225,17 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">testPackage.AssetCases</span>
+              <span class="ignored-class-name">testPackage.PublishCases</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">VerifyBundleCopy</span>
+                <span class="ignored-method-name">VerifyBundlePublish</span>
                 <br/>
-                <span class="ignored-method-name">VerifyAssetField</span>
+                <span class="ignored-method-name">VerifyPublishNegativeScenarios</span>
                 <br/>
-                <span class="ignored-method-name">VerifyAssetUpdate</span>
+                <span class="ignored-method-name">VerifyBundleDelete</span>
                 <br/>
-                <span class="ignored-method-name">VerifyAssetSave</span>
+                <span class="ignored-method-name">VerifyDelete</span>
                 <br/>
-                <span class="ignored-method-name">VerifyAssetCopy</span>
+                <span class="ignored-method-name">VerifyPublishScenarios</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -251,18 +247,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testPackage.AssetCases</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testPackage.PublishCases</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">VerifyEconScenarios(Econ, 64424509451, 7, 5, NA, NA, NA, NA, NA, NA, Description)</span>
-                <span class="method-start">892 ms</span>
+                <span class="method-name">VerifyCyclicAlertLanguage(Chinese, TESTALERTHEADLINECyclical, TEST, TEST, TESTME, TEST.V, TEST)</span>
+                <span class="method-start">1109 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">flushReportData</span>
-                <span class="method-start">35984 ms</span>
+                <span class="method-start">111143 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

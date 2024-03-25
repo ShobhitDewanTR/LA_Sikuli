@@ -2,32 +2,19 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite parallel="methods" name="Failed suite [Suite]">
   <test thread-count="5" parallel="methods" name="Test(failed)">
-    <parameter name="param7" value="T"/>
-    <parameter name="param18" value="Taslic/"/>
-    <parameter name="param8" value="Taslic/"/>
-    <parameter name="param19" value="NA"/>
-    <parameter name="param5" value="Test.V"/>
-    <parameter name="param6" value="Test"/>
-    <parameter name="param14" value="TestMe"/>
-    <parameter name="param15" value="Test.V"/>
-    <parameter name="param9" value="TestStory"/>
-    <parameter name="param16" value="Test"/>
-    <parameter name="param17" value="T"/>
-    <parameter name="param0" value="Story"/>
-    <parameter name="param3" value="Test"/>
-    <parameter name="param4" value="TestMe"/>
-    <parameter name="param1" value="TestStoryHeadline1"/>
-    <parameter name="param2" value="Test"/>
-    <parameter name="param10" value="Alert"/>
-    <parameter name="param11" value="TestAlertHeadline1"/>
-    <parameter name="param12" value="Test"/>
-    <parameter name="param13" value="Test"/>
+    <parameter name="param5" value="TEST.V"/>
+    <parameter name="param6" value="TEST"/>
+    <parameter name="param0" value="Chinese"/>
+    <parameter name="param3" value="TEST"/>
+    <parameter name="param4" value="TESTME"/>
+    <parameter name="param1" value="TESTALERTHEADLINECyclical"/>
+    <parameter name="param2" value="TEST"/>
     <classes>
       <class name="testPackage.PublishCases">
         <methods>
-          <include name="VerifyBundlePublish"/>
           <include name="flushReportData"/>
           <include name="setup"/>
+          <include name="VerifyCyclicAlertLanguage" invocation-numbers="0"/>
         </methods>
       </class> <!-- testPackage.PublishCases -->
     </classes>

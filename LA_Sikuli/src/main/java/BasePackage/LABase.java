@@ -602,4 +602,21 @@ public class LABase {
 			return pattern;
 		}
 	}
+	public static void SelectLanguage(String Language) {
+		try {
+				if (s.exists(Patternise(Language,"Moderate")) != null) {
+					s.wait(Patternise(Language,"Moderate"),2).click();
+					test.pass("Selected Language "+Language+" from the default language dropdown");
+				}
+				else if (s.exists(Patternise(Language+"Selected","Moderate")) != null) {
+					test.pass("Language "+Language+" already selected in the default language dropdown");
+				}
+				else {
+					test.fail("Selected Language "+Language+ " not found in Default language dropdown");
+				}
+		}
+		catch(Exception e) {
+			test.fail("Error Occured: "+e.getLocalizedMessage());
+		}
+}
 	}

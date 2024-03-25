@@ -2,81 +2,61 @@
 <testng-results ignored="5" total="6" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-12T14:35:29 IST" name="Suite" finished-at="2024-02-12T14:36:06 IST" duration-ms="36459">
+  <suite started-at="2024-03-25T15:08:09 IST" name="Suite" finished-at="2024-03-25T15:10:00 IST" duration-ms="111644">
     <groups>
     </groups>
-    <test started-at="2024-02-12T14:35:29 IST" name="Test" finished-at="2024-02-12T14:36:06 IST" duration-ms="36459">
-      <class name="testPackage.AssetCases">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testPackage.AssetCases@16fdec90]" started-at="2024-02-12T14:35:29 IST" name="setup" finished-at="2024-02-12T14:35:30 IST" duration-ms="861" status="PASS">
+    <test started-at="2024-03-25T15:08:09 IST" name="Test" finished-at="2024-03-25T15:10:00 IST" duration-ms="111644">
+      <class name="testPackage.PublishCases">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testPackage.PublishCases@797cf65c]" started-at="2024-03-25T15:08:09 IST" name="setup" finished-at="2024-03-25T15:08:10 IST" duration-ms="1070" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="VerifyEconScenarios(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testPackage.AssetCases@16fdec90]" started-at="2024-02-12T14:35:30 IST" name="VerifyEconScenarios" finished-at="2024-02-12T14:36:05 IST" duration-ms="35088" status="PASS">
+        <test-method signature="VerifyCyclicAlertLanguage(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testPackage.PublishCases@797cf65c]" started-at="2024-03-25T15:08:10 IST" name="VerifyCyclicAlertLanguage" finished-at="2024-03-25T15:10:00 IST" duration-ms="110028" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Econ]]>
+                <![CDATA[Chinese]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[64424509451]]>
+                <![CDATA[TESTALERTHEADLINECyclical]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[7]]>
+                <![CDATA[TEST]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[5]]>
+                <![CDATA[TEST]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[NA]]>
+                <![CDATA[TESTME]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[NA]]>
+                <![CDATA[TEST.V]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[NA]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[NA]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[NA]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[NA]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[Description]]>
+                <![CDATA[TEST]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyEconScenarios -->
-        <test-method is-config="true" signature="flushReportData()[pri:0, instance:testPackage.AssetCases@16fdec90]" started-at="2024-02-12T14:36:05 IST" name="flushReportData" finished-at="2024-02-12T14:36:06 IST" duration-ms="444" status="PASS">
+        </test-method> <!-- VerifyCyclicAlertLanguage -->
+        <test-method is-config="true" signature="flushReportData()[pri:0, instance:testPackage.PublishCases@797cf65c]" started-at="2024-03-25T15:10:00 IST" name="flushReportData" finished-at="2024-03-25T15:10:00 IST" duration-ms="457" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushReportData -->
-      </class> <!-- testPackage.AssetCases -->
+      </class> <!-- testPackage.PublishCases -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -620,6 +620,14 @@ public class AssetCases extends BasePackage.LABase {
 							  test.fail("Publish button is not disabled");
 							  }
 						 break;
+					  case "PublishEnabled":
+						  if (s.exists(Patternise("Publish","Moderate")) != null) {
+							  test.pass("Publish button is enabled");
+						 }
+						  else {
+							  test.fail("Publish button is not enabled");
+							  }
+						 break;
 					  case "Description":
 						  if (s.exists(Patternise(Hdln.strip(),"Moderate")) != null) {
 							  test.pass("Description is Auto Populated");

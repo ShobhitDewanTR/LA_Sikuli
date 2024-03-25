@@ -402,4 +402,98 @@ public class PublishCases extends BasePackage.LABase {
 			test.log(com.aventstack.extentreports.Status.INFO,nameofCurrMethod+" method end");
 		}
 	}
+	@Parameters({"param0","param1","param2","param3","param4","param5","param6"})
+	@Test
+	public static void VerifyCyclicAlertLanguage(String Lang,String Hdln, String usn,String pdct, String tpc, String ric, String nmditm) throws FindFailed, InterruptedException {
+		test = extent.createTest(MainRunner.TestID,MainRunner.TestDescription);
+		int status;
+		Region r;
+		String nameofCurrMethod = new Throwable()
+                .getStackTrace()[0]
+                .getMethodName();
+		test.log(com.aventstack.extentreports.Status.INFO,nameofCurrMethod+" Method begin");
+		try {
+			//System.out.println(s.find(Patternise("EconAlertStoryHeadline","Moderate")).getX());
+			status=LaunchLA(test,"Open","YES");
+			if(status==1) {
+				s.wait(Patternise("Tools","Moderate"),2).click();
+				s.wait(Patternise("Preferences","Moderate"),5).click();
+				s.wait(Patternise("EditingOptions","Moderate"),5).click();
+				Thread.sleep(3000);
+				if (s.exists(Patternise("DefaultLanguage","Moderate"),6) != null) {
+					s.click(Patternise("DefaultLanguage","Moderate"),2);
+					SelectLanguage(Lang);
+					Thread.sleep(3000);
+					s.wait(Patternise("Save","Moderate"),2).doubleClick();
+				}
+				else {
+					test.fail("Default language dropdown is not found");
+				}
+				s.wait(Patternise("NewAlert","Moderate"),2).click();
+				test.pass("Clicked on NewAlert button");
+				Thread.sleep(2000);
+				if (s.exists(Patternise("ExpandAlert","Moderate")) != null) {
+					s.wait(Patternise("ExpandAlert","Moderate"),2).click();
+					test.pass("Clicked on Expand Alert button");
+					EnterAlertData(test,Hdln,usn,pdct,tpc,ric,nmditm);
+					if (s.exists(Patternise(Lang+"AlertLang","Moderate")) != null) {
+						test.pass("Selected Language "+ Lang+ " found in Alert language dropdown before publish" );
+					}
+					else {
+						test.fail("Selected Language "+ Lang+ " not found in Alert language dropdown before publish");
+					}
+					if (s.exists(Patternise("Publish","Moderate")) != null) {
+						s.wait(Patternise("Publish","Moderate"),2).click();
+						test.pass("Clicked on Publish button");
+						Thread.sleep(3000);
+						//Check for New blank alert template generated or not
+						if (s.exists(Patternise("ExpandCyclicalAlert","Easy"),5) != null) {
+							s.wait(Patternise("ExpandCyclicalAlert","Easy"),2).click();
+							if (s.exists(Patternise(Lang+"AlertLang","Moderate")) != null) {
+								test.pass("Selected Language "+ Lang+ " found in cyclic Alert language dropdown after publish" );
+							}
+							else {
+								test.fail("Selected Language "+ Lang+ " not found in cyclic Alert language dropdown after publish");
+							}
+						}
+						else {
+							test.fail("New Cyclic Alert template not generated");
+						}
+						
+					} else {
+							test.fail("Publish Not Enabled");
+					}
+				} else {
+						test.fail("New Alert Template not loaded, Cannot Continue");
+				}
+			}
+			//CloseLA(test);
+		}
+		catch(Exception e) {
+			test.fail("Error Occured: "+e.getLocalizedMessage());
+		}
+		finally {
+			while(s.exists(Patternise("Delete","Strict")) != null) {
+				s.click(Patternise("Delete","Strict"));
+			}
+			while(s.exists(Patternise("DeleteFocussed","Strict")) != null) {
+				s.click(Patternise("DeleteFocussed","Strict"));
+			}
+			s.wait(Patternise("Tools","Moderate"),2).click();
+			s.wait(Patternise("Preferences","Moderate"),5).click();
+			s.wait(Patternise("EditingOptions","Moderate"),5).click();
+			Thread.sleep(3000);
+			if (s.exists(Patternise("DefaultLanguage","Moderate"),5) != null) {
+				s.wait(Patternise("DefaultLanguage","Moderate"),2).click();
+				SelectLanguage("English");
+				Thread.sleep(3000);
+				s.wait(Patternise("Save","Moderate"),2).doubleClick();
+			}
+			else {
+				test.fail("Default language dropdown is not found");
+			}
+			test.log(com.aventstack.extentreports.Status.INFO,nameofCurrMethod+" method end");
+		}
+	}
+
 }
